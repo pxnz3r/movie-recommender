@@ -1,8 +1,28 @@
-# Movie recommender
+<div align="center">
 
-Movie recommendations with user- and item-based K-nearest neighbours, and user grouping with K-Means, on 100,836 MovieLens ratings. Each method is scored on ratings it never saw: did it recommend movies the user went on to rate 4 stars or more? An interactive demo recommends movies for any MovieLens user or for movies you pick.
+<h1>Movie recommender</h1>
 
-![Relevance against variety for each recommender](outputs/figures/movies/methods.png)
+<p>Movie recommendations with user- and item-based K-nearest neighbours, and user grouping with K-Means, on 100,836 MovieLens ratings. Each method is scored on ratings it never saw: did it recommend movies the user went on to rate 4 stars or more? An interactive demo recommends movies for any MovieLens user or for movies you pick.</p>
+
+<p>
+<a href="https://github.com/pxnz3r/movie-recommender/actions/workflows/ci.yml"><img src="https://github.com/pxnz3r/movie-recommender/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+<img src="https://img.shields.io/badge/python-3.14-blue" alt="Python 3.14">
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="MIT license"></a>
+</p>
+
+<p><a href="docs/results.md">Results</a> · <a href="docs/methodology.md">Methodology</a> · <a href="docs/deploy.md">Deploy the demo</a></p>
+
+<img src="outputs/figures/movies/methods.png" width="720" alt="Relevance against variety for each recommender">
+
+</div>
+
+## How it works
+
+1. **Hide 20%** of every user's MovieLens ratings.
+2. **Recommend 10 movies** per user with user-based and item-based KNN, K-Means taste groups and two baselines.
+3. **Score each method** on the hidden ratings: precision, recall, hit rate and coverage.
+4. **Test how sure the scores are** with bootstrap intervals over users, and check popularity bias and how light users fare.
+5. **Pick a user, or movies you like,** in the Streamlit demo and get recommendations.
 
 ## Results
 
@@ -22,6 +42,18 @@ Movie recommendations with user- and item-based K-nearest neighbours, and user g
 - The number of neighbours was chosen on a validation split carved from the training ratings, never on the hidden test ratings.
 
 Full tables and figures: [docs/results.md](docs/results.md). How it was done: [docs/methodology.md](docs/methodology.md).
+
+## How sure the results are
+
+**User-based KNN wins, and not by luck.** Precision@10 0.161 (95% interval over users 0.146 to 0.175) against 0.124 (0.112 to 0.137) for recommending the most popular movies.
+
+**Item-based KNN and taste groups only tie with popularity.** Their intervals overlap the popularity baseline.
+
+**Most methods only recommend blockbusters.** 99.6% of user-based picks come from the top 10% most-rated movies. Item-based KNN is the exception: 57% blockbusters, and it shows 42% of the long tail.
+
+**Light users are the hard case.** User-based precision@10 is 0.056 for users with 16 to 28 ratings and 0.326 for users with more than 135.
+
+Every table and figure behind these is in [docs/results.md](docs/results.md).
 
 ## Run it
 
