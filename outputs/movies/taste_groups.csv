@@ -1,0 +1,4 @@
+Group,Users,Share,Action,Adventure,Animation,Children,Comedy,Crime,Documentary,Drama,Fantasy,Film-Noir,Horror,IMAX,Musical,Mystery,Romance,Sci-Fi,Thriller,War,Western
+Comedy & Romance fans,249,0.408,0.214,0.188,0.066,0.1,0.458,0.139,0.012,0.446,0.108,0.006,0.052,0.023,0.058,0.063,0.261,0.115,0.214,0.044,0.02
+Thriller & Crime fans,233,0.382,0.37,0.239,0.035,0.048,0.257,0.242,0.008,0.476,0.078,0.011,0.078,0.042,0.02,0.1,0.137,0.187,0.366,0.077,0.025
+Adventure & Action fans,128,0.21,0.433,0.43,0.144,0.164,0.339,0.127,0.003,0.308,0.2,0.003,0.055,0.098,0.045,0.064,0.142,0.277,0.244,0.043,0.013

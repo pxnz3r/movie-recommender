@@ -1,0 +1,6 @@
+Method,Precision@10,Recall@10,Hit rate,Coverage,Users scored
+User-based KNN (k = 160),0.161,0.1507,0.6767,0.0416,597
+Item-based KNN (k = 80),0.1278,0.1133,0.5879,0.4168,597
+Taste group (3 K-Means groups),0.1235,0.1094,0.5812,0.0251,597
+Most popular (baseline),0.1236,0.1075,0.5745,0.0171,597
+Random (baseline),0.0044,0.0031,0.0419,0.8501,597
