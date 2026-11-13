@@ -16,6 +16,51 @@ Produced by `python main.py`. 20% of each user's ratings are hidden (seed 42); a
 
 ![methods](../outputs/figures/movies/methods.png)
 
+## Deeper checks
+
+![intervals](../outputs/figures/movies/intervals.png)
+
+### Scores with 95% bootstrap intervals over users
+
+| Method | Score | Value | Low | High |
+| --- | --- | --- | --- | --- |
+| User-based KNN (k = 160) | Precision@10 | 0.161 | 0.1462 | 0.1749 |
+| User-based KNN (k = 160) | Recall@10 | 0.1507 | 0.1365 | 0.1647 |
+| User-based KNN (k = 160) | Hit rate | 0.6767 | 0.6382 | 0.7119 |
+| Item-based KNN (k = 80) | Precision@10 | 0.1278 | 0.1159 | 0.1417 |
+| Item-based KNN (k = 80) | Recall@10 | 0.1133 | 0.1021 | 0.1251 |
+| Item-based KNN (k = 80) | Hit rate | 0.5879 | 0.5494 | 0.6248 |
+| Taste group (3 K-Means groups) | Precision@10 | 0.1235 | 0.1109 | 0.1369 |
+| Taste group (3 K-Means groups) | Recall@10 | 0.1094 | 0.0972 | 0.1217 |
+| Taste group (3 K-Means groups) | Hit rate | 0.5812 | 0.5394 | 0.6181 |
+| Most popular (baseline) | Precision@10 | 0.1236 | 0.1117 | 0.1365 |
+| Most popular (baseline) | Recall@10 | 0.1075 | 0.0957 | 0.119 |
+| Most popular (baseline) | Hit rate | 0.5745 | 0.5377 | 0.6147 |
+| Random (baseline) | Precision@10 | 0.0044 | 0.0027 | 0.006 |
+| Random (baseline) | Recall@10 | 0.0031 | 0.0015 | 0.005 |
+| Random (baseline) | Hit rate | 0.0419 | 0.0268 | 0.057 |
+
+### Popularity bias: how mainstream each method's picks are
+
+| Method | Median ratings per pick | Picks from the top 10% most rated | Long-tail movies shown |
+| --- | --- | --- | --- |
+| User-based KNN (k = 160) | 165 | 0.9961 | 0.0048 |
+| Item-based KNN (k = 80) | 73 | 0.5716 | 0.4188 |
+| Taste group (3 K-Means groups) | 165 | 0.997 | 0.0 |
+| Most popular (baseline) | 188 | 1.0 | 0.0 |
+| Random (baseline) | 12 | 0.088 | 0.8533 |
+
+![activity](../outputs/figures/movies/activity.png)
+
+### Precision@10 by how many ratings a user gave
+
+| Users | Scored users | User-based KNN (k = 160) | Item-based KNN (k = 80) | Taste group (3 K-Means groups) | Most popular (baseline) | Random (baseline) |
+| --- | --- | --- | --- | --- | --- | --- |
+| 16 to 28 ratings | 145 | 0.0559 | 0.0359 | 0.0386 | 0.04 | 0.0014 |
+| 29 to 56 ratings | 147 | 0.1034 | 0.0762 | 0.0769 | 0.0721 | 0.0007 |
+| 57 to 134 ratings | 154 | 0.1532 | 0.1221 | 0.113 | 0.1117 | 0.0045 |
+| 135 to 2158 ratings | 151 | 0.3258 | 0.2722 | 0.2609 | 0.2662 | 0.0106 |
+
 ## Neighbours
 
 ![neighbours](../outputs/figures/movies/neighbours.png)

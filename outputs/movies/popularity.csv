@@ -1,0 +1,6 @@
+Method,Median ratings per pick,Picks from the top 10% most rated,Long-tail movies shown
+User-based KNN (k = 160),165,0.9961,0.0048
+Item-based KNN (k = 80),73,0.5716,0.4188
+Taste group (3 K-Means groups),165,0.997,0.0
+Most popular (baseline),188,1.0,0.0
+Random (baseline),12,0.088,0.8533

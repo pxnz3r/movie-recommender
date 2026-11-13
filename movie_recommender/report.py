@@ -23,6 +23,16 @@ def results_sections():
             ],
         ),
         (
+            "Deeper checks",
+            [
+                ("figure", f"{FOLDER}/intervals.png"),
+                ("table", "Scores with 95% bootstrap intervals over users", f"{FOLDER}/intervals.csv"),
+                ("table", "Popularity bias: how mainstream each method's picks are", f"{FOLDER}/popularity.csv"),
+                ("figure", f"{FOLDER}/activity.png"),
+                ("table", "Precision@10 by how many ratings a user gave", f"{FOLDER}/activity.csv"),
+            ],
+        ),
+        (
             "Neighbours",
             [
                 ("figure", f"{FOLDER}/neighbours.png"),

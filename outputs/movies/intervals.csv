@@ -1,0 +1,16 @@
+Method,Score,Value,Low,High
+User-based KNN (k = 160),Precision@10,0.161,0.1462,0.1749
+User-based KNN (k = 160),Recall@10,0.1507,0.1365,0.1647
+User-based KNN (k = 160),Hit rate,0.6767,0.6382,0.7119
+Item-based KNN (k = 80),Precision@10,0.1278,0.1159,0.1417
+Item-based KNN (k = 80),Recall@10,0.1133,0.1021,0.1251
+Item-based KNN (k = 80),Hit rate,0.5879,0.5494,0.6248
+Taste group (3 K-Means groups),Precision@10,0.1235,0.1109,0.1369
+Taste group (3 K-Means groups),Recall@10,0.1094,0.0972,0.1217
+Taste group (3 K-Means groups),Hit rate,0.5812,0.5394,0.6181
+Most popular (baseline),Precision@10,0.1236,0.1117,0.1365
+Most popular (baseline),Recall@10,0.1075,0.0957,0.119
+Most popular (baseline),Hit rate,0.5745,0.5377,0.6147
+Random (baseline),Precision@10,0.0044,0.0027,0.006
+Random (baseline),Recall@10,0.0031,0.0015,0.005
+Random (baseline),Hit rate,0.0419,0.0268,0.057

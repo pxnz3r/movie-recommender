@@ -1,0 +1,5 @@
+Users,Scored users,User-based KNN (k = 160),Item-based KNN (k = 80),Taste group (3 K-Means groups),Most popular (baseline),Random (baseline)
+16 to 28 ratings,145,0.0559,0.0359,0.0386,0.04,0.0014
+29 to 56 ratings,147,0.1034,0.0762,0.0769,0.0721,0.0007
+57 to 134 ratings,154,0.1532,0.1221,0.113,0.1117,0.0045
+135 to 2158 ratings,151,0.3258,0.2722,0.2609,0.2662,0.0106

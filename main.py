@@ -23,6 +23,14 @@ import numpy as np
 import pandas as pd
 
 from movie_recommender.data import load_movielens, split_ratings
+from movie_recommender.deeper import (
+    activity_table,
+    bootstrap_intervals,
+    per_user_scores,
+    plot_activity,
+    plot_intervals,
+    popularity_table,
+)
 from movie_recommender.groups import taste_groups
 from movie_recommender.recommend import (
     build_matrix,
@@ -170,6 +178,19 @@ def main():
     table = pd.DataFrame(rows).round(4)
     save_table(table, f"{FOLDER}/methods.csv")
     save_figure(plot_methods(table), f"{FOLDER}/methods.png")
+
+    # Deeper checks: how sure the scores are, popularity bias, light users.
+    scores = {
+        method: per_user_scores(picks, hidden, matrix["movies"], LIST_LENGTH)
+        for method, picks in recommendations.items()
+    }
+    intervals = bootstrap_intervals(scores)
+    save_table(intervals, f"{FOLDER}/intervals.csv")
+    save_figure(plot_intervals(intervals), f"{FOLDER}/intervals.png")
+    save_table(popularity_table(recommendations, train, matrix["movies"], LIST_LENGTH), f"{FOLDER}/popularity.csv")
+    activity = activity_table(scores, train)
+    save_table(activity, f"{FOLDER}/activity.csv")
+    save_figure(plot_activity(activity), f"{FOLDER}/activity.png")
 
     # What the demo needs: the chosen settings and each user's taste group.
     os.makedirs(MODELS_FOLDER, exist_ok=True)
